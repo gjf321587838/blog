@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页_龚家福个人博客</title>
+    <link href="/static/css/base_u.css" rel="stylesheet">
+    {% block css %}
+
+    {% endblock %}
+</head>
+<body>
+<div id="blog">
+    <div id="backgd" style="background:url(/static/images/com/topbg.jpg) no-repeat top #D6E0E1">
+    </div>
+    <header>
+        {% include "front/common/header.html" %}
+    </header>
+    <article>
+        {% block article %}
+        {% endblock %}
+    </article>
+    <footer>
+        {% include "front/common/footer.html" %}
+    </footer>
+</div>
+</body>
+</html>
