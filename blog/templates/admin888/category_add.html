@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章类别添加</title>
+</head>
+<body>
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>类别名称：</td>
+                <td><input type="text" maxlength="32" placeholder="请输入文章类别名称"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="提交"></td>
+                <td><input type="reset" value="重置"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

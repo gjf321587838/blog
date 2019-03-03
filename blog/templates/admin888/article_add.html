@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章添加</title>
+    <style>
+        .must{
+            color: red;
+            margin: auto;
+            width: 20px;
+            display:inline-block;
+            text-align: center;
+        }
+        table{
+            border: 1px blue solid;
+            width: 100%;
+        }
+        table tr td{
+            border: 1px blue solid;
+            line-height: 30px;
+
+        }
+        td:nth-child(1){
+            max-width: 100px;
+            text-align: right;
+        }
+        .detail{
+            min-width: 300px;
+            height: 100px;
+            line-height: 20px;
+        }
+        input[type=submit], input[type=reset]{
+            background-image: url("/static/image/bt.png");
+            color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="">
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <td>标题名称：</td>
+                <td><input type="text" placeholder="请输入标题"><span class="must">*</span></td>
+            </tr>
+            <tr>
+                <td>分类名称：</td>
+                <td><select>
+                    <option value="1" selected>python</option>
+                    <option value="2">JAVA</option>
+                    <option value="3">软件测试</option>
+                    <option value="4">自动化测试</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>详细内容：</td>
+                <td>
+                    <textarea placeholder="请输入详细内容" name="" class="detail"></textarea>
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="提交"><input type="reset" value="重置">
+    </form>
+</body>
+</html>

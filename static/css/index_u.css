@@ -1,0 +1,114 @@
+.l_box{
+    float: left;
+    width: 200px;
+    margin-left: 1px;
+}
+
+.l_box div{
+    background: rgba(255,255,255,0.5);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.l_box h2{
+    color: #333;
+    font-size: 14px;
+    line-height: 30px;
+    padding-left: 20px;
+    background: #fff;
+}
+.l_box ul{
+    margin: 5px;
+}
+.r_box{
+    float: left;
+    max-width: 760px;
+    width: 100%;
+    padding: 10px;
+}
+
+/*我的相册*/
+.wdxc img{
+    width: 58px;
+    height: 58px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+/*搜索*/
+.l_box .search{
+    border: 1px solid #0000ff;
+    background: #0000ff;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+}
+.search input[type=text]{
+    border: 0;
+    line-height: 36px;
+    width: 140px;
+    padding-left: 10px;
+}
+.search input[type=submit]{
+    line-height: 36px;
+    border: 0;
+    background: 0;
+    color: #fff;
+    outline: none;
+    position: absolute;
+    width: 25%;
+}
+
+/*文章分类*/
+
+
+/*右侧文章*/
+.r_box ul{
+    width: 100%;
+}
+.r_box li p {
+    margin: 20px 0 0 0;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+}
+.r_box li h3 {
+    font-size: 16px;
+    line-height: 25px;
+    text-shadow: #FFF 1px 1px 1px;
+}
+.r_box li h3 a {
+    color: #222;
+}
+.r_box li {
+    background: rgba(255,255,255,0.8);
+    padding: 15px;
+    overflow: hidden;
+    color: #797b7c;
+    margin-bottom: 15px;}
+.r_box li p {
+    margin: 20px 0 0 0;
+    line-height: 22px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+}
+
+/*分页*/
+.page{
+    text-align: center;
+    width: 100%;
+}
+.page a, .page span{
+    color: #666;
+    display: inline-block;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: #FFF;
+    cursor: pointer;
+}

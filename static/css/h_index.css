@@ -1,0 +1,25 @@
+article{
+        overflow: hidden;
+    }
+*{margin:0;
+padding:0;}
+#l_art ul li{
+    list-style:none;
+    border: 1px blue solid;
+    width:150px;
+    padding-left:20px;
+    line-height:30px;
+}
+.menu_top{
+    padding-left:-10px;
+    line-height:30px;
+}
+#l_art{
+    width: 200px;
+    float: left;
+}
+#r_art{
+    float: left;
+    width: 780px;
+    margin-left: 20px;
+}
