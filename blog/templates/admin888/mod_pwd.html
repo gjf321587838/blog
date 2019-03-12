@@ -2,9 +2,82 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>修改登录密码</title>
+    <link type="text/css" href="/static/css/r_content.css" rel="stylesheet">
+    <style>
+        td:nth-child(1){
+            text-align: right;
+            width: 100px;
+        }
+        .err{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-$END$
+    <form method="post" action="{% url 'pwd_mod' %}" onsubmit="return check()">
+        {% csrf_token %}
+    <table cellpadding="10" cellspacing="0">
+        <tr>
+            <td>原密码：</td>
+            <td>
+                <input type="password" maxlength="20" minlength="6" name="old_pwd" id="old_pwd">
+                <span class="err">{{ message }}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>新密码：</td>
+            <td>
+                <input type="password" maxlength="20" minlength="6" name="new_pwd" id="new_pwd">
+                <span class="err"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>确认密码：</td>
+            <td>
+                <input type="password" maxlength="20" minlength="6" name="qr_pwd" id="qr_pwd">
+                <span class="err"></span>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="确认">
+                <input type="reset" value="取消" onclick="qx()">
+            </td>
+        </tr>
+    </table>
+    </form>
+    <script>
+        var err = document.getElementsByClassName("err");
+        function qx() {
+            for (i=0; i<err.length; i++){
+                err[i].innerHTML="";
+            }
+        }
+        function check() {
+            for (i=0; i<err.length; i++){
+                err[i].innerHTML="";
+            }
+            var old_pwd = document.getElementById("old_pwd");
+            var new_pwd = document.getElementById("new_pwd");
+            var qr_pwd = document.getElementById("qr_pwd");
+            if(old_pwd.value===""){
+                err[0].innerHTML = "请输入原密码!";
+            }else if(new_pwd.value ===""){
+                err[1].innerHTML = "请输入新密码!";
+            }else if(qr_pwd.value===""){
+                err[2].innerHTML = "请确认密码!";
+            }else if(new_pwd.value !== qr_pwd.value){
+                err[2].innerHTML="两次密码不一致!";
+                return false;
+            }
+            if(old_pwd.value ==="" || new_pwd.value ==="" || qr_pwd.value ===""){
+                return false;
+            }else {
+                return true;
+            }
+        }
+    </script>
 </body>
 </html>

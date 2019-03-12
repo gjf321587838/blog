@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>文章类别添加</title>
+    <link rel="stylesheet" href="/static/css/r_content.css" type="text/css">
 </head>
 <body>
     <form action="" method="post">
         {% csrf_token %}
-        <table>
+        <div class="men">
+            <a href="{% url 'category' %}">返回分类列表</a>
+        </div>
+        <table cellspacing="0" cellpadding="10">
             <tr>
-                <td>类别名称：</td>
-                <td><input type="text" maxlength="32" placeholder="请输入文章类别名称"></td>
+                <td align="right">类别名称：</td>
+                <td><input type="text" name="wzlb" maxlength="32" placeholder="请输入文章类别名称"
+                           value="{{ old_category.name }}">
+                    <div id="err" style="display: inline-block; color: red"></div>
+                </td>
             </tr>
             <tr>
-                <td><input type="submit" value="提交"></td>
-                <td><input type="reset" value="重置"></td>
+                <td></td>
+                <td><input type="submit" value="提交"><input type="reset" value="重置"></td>
             </tr>
         </table>
     </form>

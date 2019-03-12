@@ -3,8 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>后台首页</title>
+    <link rel="stylesheet" href="/static/css/h_index.css" type="text/css">
 </head>
 <body>
+    <header>
+        <div id="logo">
+            个人博客网站后台
+        </div>
+        <div id="xx">
+            欢迎登录后台管理系统！[<a href="{% url 'logout' %}">退出系统</a>]
+        </div>
+    </header>
+    <article>
+    <div id="l_art">
+        <ul>
+            <li class="menu_top">个人设置</li>
+            <li><a href="{% url 'personal' %}" target="r_content">个人介绍</a></li>
+            <li class="menu_top">文章管理</li>
+            <li><a href="{% url 'category_add' %}" target="r_content">分类添加</a></li>
+            <li><a href="{% url 'category' %}" target="r_content">分类列表</a></li>
+            <li><a href="{% url 'article_add' %}" target="r_content">文章添加</a></li>
+            <li><a href="{% url 'article' %}" target="r_content">文章列表</a></li>
+            <li class="menu_top">相册管理</li>
+            <li><a href="\" target="r_content">相片添加</a></li>
+            <li><a href="\" target="r_content">相片列表</a></li>
+            <li class="menu_top">系统设置</li>
+            <li><a href="\" target="r_content">系统参数设置</a></li>
+            <li><a href="{% url 'pwd' %}" target="r_content">修改密码</a></li>
+            <li><a href="{% url 'logout' %}">退出系统</a></li>
+        </ul>
+    </div>
+    <div id="r_art">
+        <iframe name="r_content">
 
+        </iframe>
+    </div>
+    </article>
+    <footer>
+        {% include "common/footer.html" %}
+    </footer>
 </body>
 </html>

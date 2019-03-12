@@ -2,9 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>文章类别列表</title>
+    <link rel="stylesheet" href="/static/css/r_content.css" type="text/css">
 </head>
 <body>
-$END$
+    <div class="men">
+        <a>文章类别列表</a>&nbsp;|&nbsp;
+        <a href="{% url 'category_add' %}">添加文章类别</a>
+    </div>
+    <table cellpadding="10" cellspacing="0">
+        <tr>
+            <th>序号</th>
+            <th>类别名称</th>
+            <th>操作</th>
+        </tr>
+        {% for i in data %}
+            <tr>
+                <td align="center" style="width: 50px;">{{ forloop.counter }}</td>
+                <td style="text-indent: 32px;">{{ i.name }}</td>
+                <td align="center" width="100px">
+                    <a href="{% url 'category_mod' i.id %}">编辑</a>
+                    <span style="text-align: center">|</span>
+                    <a href="{% url 'category_del' i.id %}" onclick="return cons()">删除</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+    </table>
+    <script>
+      function cons(){
+          var msg=confirm("确认操作？");
+          if(msg!="0")
+          {return true;}
+          else
+          {return false;}
+      }
+    </script>
+
 </body>
 </html>

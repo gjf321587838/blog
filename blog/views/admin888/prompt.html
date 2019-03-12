@@ -2,9 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
 </head>
 <body>
-$END$
+<div>
+    更新成功，3秒后自动返回！
+</div>
+<script>
+    setTimeout(function () {
+        m = {% url "" %}
+        window.open();
+    }, 3000)
+</script>
 </body>
 </html>

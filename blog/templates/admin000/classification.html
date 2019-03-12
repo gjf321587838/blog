@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>分类列表</title>
+    <link type="text/css" href="/static/css/r_base.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <strong>分类列表</strong><small> / Classification list</small>
+    </header>
+    <article>
+        {% for i in classification %}
+            {% if forloop.first %}
+                <table style="width: 100%">
+                    <tr>
+                        <th>编号</th>
+                        <th>分类名</th>
+                        <th>操作</th>
+                    </tr>
+            {% endif %}
+                <tr>
+                    <td align="center">{{ forloop.counter }}</td>
+                    <td align="center">{{ i.name }}</td>
+                    <td align="center">
+                        <a href="{% url 'classification_mod' i.id  %}">编辑</a>|
+                        <a href="{% url 'classification_del' i.id  %}" onclick="return cons()" >删除</a>
+                    </td>
+                </tr>
+            {% if forloop.last %}
+                    </table>
+                    <script>
+                      function cons(){
+                          var msg=confirm("确认操作？");
+                          if(msg!=="0")
+                          {return true;}
+                          else
+                          {return false;}
+                      }
+                    </script>
+            {% endif %}
+            {% empty %}
+            <a href="{% url 'classification_add' %}">没有分类，去添加</a>
+        {% endfor %}
+    </article>
+</body>
+</html>

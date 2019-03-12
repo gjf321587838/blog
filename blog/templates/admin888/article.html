@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>文章列表</title>
+    <link type="text/css" href="/static/css/r_content.css" rel="stylesheet">
 </head>
 <body>
-$END$
+    <div class="men">
+        <a href="{% url 'article_add' %}">添加文章</a>
+    </div>
+    {% for i in all_article %}
+        {% if forloop.first %}
+        <table cellpadding="10" cellspacing="0">
+            <tr>
+                <th>序号</th>
+                <th>标题</th>
+                <th>类别</th>
+                <th>操作</th>
+            </tr>
+        {% endif %}
+            <tr>
+                <td align="center">
+                    {{ forloop.counter }}
+                </td>
+                <td align="center">
+                    {{ i.title }}
+                </td>
+                <td align="center">
+                    {{ i.category.name }}
+                </td>
+                <td align="center">
+                    <a href="{% url 'article_mod' i.id %}">编辑</a>|
+                    <a href="{% url 'article_del' i.id %}" onclick="return cons()">删除</a>
+                </td>
+            </tr>
+        {% if forloop.last %}
+        </table>
+        {% endif %}
+        {% empty %}
+        <a href="{% url 'article_add' %}">没有文章,去添加！</a>
+    {% endfor %}
+
+<script>
+    function cons() {
+        var msg=confirm("确认操作？");
+        if(msg !=="0"){
+            return true;
+        }else {return false;}
+    }
+</script>
 </body>
 </html>

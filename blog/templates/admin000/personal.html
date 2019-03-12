@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人资料</title>
+    <style>
+        table tr{
+        }
+        table tr td:nth-child(1){
+            font-weight: bold;
+            text-align: right;
+        }
+        table tr td:nth-child(2){
+            padding-left: 20px;
+        }
+        input[type=text],input[type=email],input[type=number]{
+            line-height: 20px;
+            padding: 5px;
+            color: #555;
+            max-width: 200px;
+            width: 100%;
+        }
+        textarea{
+            width: 200px;
+            min-height: 50px;
+            line-height: 20px;
+            padding: 5px;
+            color: #555;
+        }
+        input[type=submit],input[type=reset]{
+            color: whitesmoke;
+            background-image: url("/static/image/an.png");
+        }
+        #nav_top{
+            border-bottom: 1px solid #555;
+            padding: 15px 10px;
+        }
+        #nav_top strong{
+            color: #0e90d2;
+        }
+        #nav_top small{
+            color: #333;
+        }
+        #nav_content{
+            padding: 10px;
+            overflow: hidden;
+        }
+        .l_box{
+            float: left;
+        }
+        .r_box{
+            float: left;
+            margin-left: 20px;
+        }
+        .portrait{
+            border: 1px solid #c0c0c0;
+            padding: 10px;
+            overflow: hidden;
+        }
+        .portrait img{
+            width: 64px;
+            height: 64px;
+        }
+        .portrait div:nth-child(1){
+            float: left;
+            max-width: 64px;
+            padding: 5px;
+        }
+        .portrait div:nth-child(2){
+            float: left;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="nav_top"><strong>个人资料</strong><small>/ Personal information</small></div>
+    <div id="nav_content">
+        <div class="l_box">
+                    <form method="post" action="{% url 'personal_add' %}">
+            {% csrf_token %}
+        <table>
+            <tr>
+                <td>姓名 / Name</td>
+                <td><input type="text" name="u_name" placeholder="姓名"></td>
+            </tr>
+            <tr>
+                <td>电子邮件 / Email</td>
+                <td><input type="email" placeholder="email" name="u_email"></td>
+            </tr>
+            <tr>
+                <td>电话 / Telephone</td>
+                <td><input type="number" placeholder="电话" name="u_phone"></td>
+            </tr>
+            <tr>
+                <td>QQ</td>
+                <td><input type="number" placeholder="QQ" name="u_qq"></td>
+            </tr>
+            <tr>
+                <td>微博 / Twitter</td>
+                <td><input type="text" placeholder="微博" name="u_wb"></td>
+            </tr>
+            <tr>
+                <td>简介 / Intro</td>
+                <td><textarea name="u_grjs"></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="更新">
+                    <input type="reset" value="重置">
+                </td>
+            </tr>
+        </table>
+        </form>
+        </div>
+        <div class="r_box">
+            <div class="portrait">
+                <div>
+                    <img src="/static/image/h_top.jpg" alt="头像" id="por" title="头像">
+                </div>
+                <div>
+                    <form id="file0">
+                        <input type="file"  id="file"><br>
+                        <input type="submit" value="保存">
+                    </form>
+                </div>
+                <script>
+                    document.getElementById("file0").onchange=function(){
+                        var objUrl = document.getElementById("file").files[0];
+                        var wuc = window.URL.createObjectURL(objUrl);
+                        document.getElementById("por").src = wuc;
+                    };//获取文件信息
+                </script>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

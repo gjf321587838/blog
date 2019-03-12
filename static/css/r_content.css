@@ -1,21 +1,54 @@
 *{margin: 0;
 padding: 0;}
+a{text-decoration: none}
+body{
+    font-family: Verdana, Arial,Vrinda,Tahoma;
+    color: #777;
+    margin: auto;
+    font-size: 12px;
+}
+.men{
+    padding: 10px 0 5px 10px;
+}
+.men a{
+    color: #009BCD;
+}
+
 table{
-border: 1px blue solid;
+    margin-top: 10px;
+border: 1px #B9DBD8 solid;
 width: 100%;
 height: 100%;
 }
 td, th{
-border: 1px blue solid;
-padding: 10px 0 10px 20px;
+    border: 1px #B9DBD8 solid;
+    line-height: 30px;
+    padding: 5px 5px;
+
 }
-input[type=text]{
+td a{
+        color: #777;
+}
+table input{
 line-height: 25px;
 }
 input[type=submit], input[type=reset]{
-background-image: url("/static/image/bt.png");
-color: white;
-width: 50px;
-padding: 5px 10px;
-margin-right: 50px;
+    background-image: url("/static/image/bt.png");
+    color: white;
+    width: 50px;
+    padding: 5px 10px;
+    margin-right: 50px;
+    border-radius: 4px;
+}
+textarea{
+    width: 100%;
+    height: 200px;
+}
+
+.must{
+    color: red;
+    margin: auto;
+    min-width: 20px;
+    display:inline-block;
+    text-align: center;
 }

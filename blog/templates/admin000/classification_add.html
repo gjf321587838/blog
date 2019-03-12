@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>添加分类</title>
+    <link type="text/css" href="/static/css/r_base.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div>
+            <strong>添加分类</strong><small> / Add the classification</small>
+        </div>
+    </header>
+    <article>
+        <form action="" method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>分类名:</td>
+                    <td>
+                        {% if yssj %}
+                            <input type="text" placeholder="分类名" name="flm" value="{{ yssj.name }}">
+                            <input type="hidden" name="bh" value="{{ yssj.id }}">
+                        {% else %}
+                            <input type="text" placeholder="分类名" name="flm" value="{{ yssj }}">
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr align="center">
+                    <td colspan="2">
+                        <input type="submit" value="提交">
+                        <input type="reset" value="重置">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </article>
+</body>
+</html>

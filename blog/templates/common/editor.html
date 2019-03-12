@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<div id="editor_men" style="border: 1px solid #ccc;">
+</div>
+<div id="editor_content" style="border: 1px solid #ccc; height: 400px;">
+</div>
+<script type="text/javascript" src="/static/editor/wangEditor.js"></script>
+<script type="text/javascript">
+    var E = window.wangEditor;
+    var editor = new E('#editor_men', '#editor_content');
+    // 或者 var editor = new E( document.getElementById('editor') );
+    editor.customConfig.uploadImgServer = '/upload';
+    editor.create();
+    m = '{{ info.content | safe }}';
+     editor.txt.html(m);
+</script>
 
-</body>
-</html>

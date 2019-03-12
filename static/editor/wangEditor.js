@@ -4,6 +4,34 @@
 	(global.wangEditor = factory());
 }(this, (function () { 'use strict';
 
+/* 获取表情*/
+
+var xmlhttp;
+if (window.XMLHttpRequest)
+{
+    //  IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+    xmlhttp=new XMLHttpRequest();
+}
+else
+{
+    // IE6, IE5 浏览器执行代码
+    xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      myFunction(this);
+    }
+  };
+var express;
+function myFunction(xml) {
+  var i;
+  var express = xml.responseText;
+  alert(express);
+
+}
+xmlhttp.open("GET","/admin/expression",true);
+xmlhttp.send();
+
 /*
     poly-fill
 */
@@ -563,47 +591,7 @@ var config = {
     // },
 
     // 表情
-    emotions: [{
-        // tab 的标题
-        title: '默认',
-        // type -> 'emoji' / 'image'
-        type: 'image',
-        // content -> 数组
-        content: [{
-            alt: '[坏笑]',
-            src: 'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/50/pcmoren_huaixiao_org.png'
-        }, {
-            alt: '[舔屏]',
-            src: 'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/40/pcmoren_tian_org.png'
-        }, {
-            alt: '[污]',
-            src: 'http://img.t.sinajs.cn/t4/appstyle/expression/ext/normal/3c/pcmoren_wu_org.png'
-        }]
-    }, {
-        // tab 的标题
-        title: '中国',
-        // type -> 'emoji' / 'image'
-        type: 'image',
-        // content -> 数组
-        content: [{
-            src: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/7a/shenshou_thumb.gif',
-            alt: '[草泥马]'
-        }, {
-            src: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/60/horse2_thumb.gif',
-            alt: '[神马]'
-        }, {
-            src: 'http://img.t.sinajs.cn/t35/style/images/common/face/ext/normal/bc/fuyun_thumb.gif',
-            alt: '[浮云]'
-        }]
-    },
-	{
-        // tab 的标题
-        title: 'emoji',
-        // type -> 'emoji' / 'image'
-        type: 'emoji',
-        // content -> 数组
-        content: '😀 😃 😄 😁 😆 😅 😂 😊 😇 🙂 🙃 😉 😓 😪 😴 🙄 🤔 😬 🤐'.split(/\s/)
-    }],
+    emotions: express,
 
     // 编辑区域的 z-index
     zIndex: 10000,
@@ -2161,7 +2149,8 @@ Emoticon.prototype = {
                     var alt = item.alt;
                     if (src) {
                         // 加一个 data-w-e 属性，点击图片的时候不再提示编辑图片
-                        faceHtml += '<span class="w-e-item"><img src="' + src + '" alt="' + alt + '" data-w-e="1"/></span>';
+                        faceHtml += '<span class="w-e-item"><img src="' + src + '" alt="' + alt + '"' +
+                            ' width="20px"  height="20px" data-w-e="1"/></span>';
                     }
                 });
             }

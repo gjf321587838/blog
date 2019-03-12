@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/base.css">
+    <link rel="stylesheet" type="text/css" href="https://at.alicdn.com/t/font_1079626_fljiqs4n3j5.css">
+</head>
+<body>
+<header>
+    <div id="logo">
+        <p>博客后台管理</p>
+    </div>
+    <div id="user">
+        <ul>
+            <li><a href="\"><i class="iconfont icon-xinxi"></i>&nbsp;收信箱</a></li>
+            <li><a href="\"><i class="iconfont icon-admin"></i>&nbsp;管理员</a></li>
+        </ul>
+    </div>
+</header>
+<article>
+    <div id="nav">
+        <table cellspacing="0">
+            <tr>
+                <td>
+                    <p><a href="\" target="content"><i class="iconfont icon-index-copy"></i>首页</a>
+                    </p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p onclick="xs('sx')">
+                        <i class="iconfont icon-wenzhang"></i>文章管理 <strong style="float: right">&gt;</strong>
+                    </p>
+                    <ul class="sx">
+                        <li><a href="{% url 'classification_add' %}" target="content"><i class="iconfont icon-tianjiafenlei"></i>分类添加</a></li>
+                        <li><a href="{% url 'classification' %}" target="content"><i class="iconfont icon-wenzhangfenlei"></i>分类列表</a></li>
+                        <li><i class="iconfont icon-tianjiawenzhang"></i>文章添加</li>
+                        <li><i class="iconfont icon-wenzhangguanli"></i>文章列表</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p><a href="{% url 'personal' %}" target="content"><i class="iconfont icon-gerenziliao"></i>个人资料</a></p>
+                </td>
+            </tr>
+            <tr>
+                <td><p><a href="\" target="content"><i class="iconfont icon-gerenxiangce"></i>相册页面</a></p></td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="content">
+        <iframe name="content"></iframe>
+
+    </div>
+    <script>
+        function xs(e) {
+            var u = document.getElementsByClassName(e)[0];
+            if(u.style.display==="none" || u.style.display===""){
+                u.style.display='block';
+            }else {
+                u.style.display = 'none';
+            }
+        }
+        szdx();
+        window.onresize=function () {
+            var m = document.body.offsetWidth;
+            if(m>=500){
+                document.getElementById("nav").style.display="block";
+            szdx();}else{
+                document.getElementById("nav").style.display="none";
+                var cont = document.getElementById("content");
+                cont.style.width = "100%";
+            }
+        };
+        function szdx() {
+            var w = document.body.offsetWidth-201;
+            var cont = document.getElementById("content");
+            cont.style.width = w+ "px";
+        }
+    </script>
+</article>
+<footer>
+<div id="footer" style="width: 100%; margin: auto; text-align: center">
+    龚家福个人博客      <a href="http://www.miitbeian.gov.cn/" target="_blank">鄂ICP备19004780号</a>
+</div>
+</footer>
+</body>
+</html>

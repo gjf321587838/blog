@@ -1,4 +1,4 @@
-{% extends "front/common/base.html" %}
+{% extends "common/base.html" %}
 {% block css %}
     <link href="/static/css/index_u.css" rel="stylesheet">
 {% endblock %}
@@ -8,7 +8,7 @@
             <h2>关于我</h2>
             <ul>
                 <li></li>
-                <li><p><b>龚家福</b>,一个喜欢软件测试工作的男孩！</p></li>
+                <li><p><b>{{ u_info.username }}</b>,{{ u_info.introduce }}</p></li>
             </ul>
         </div>
         <div class="wdxc">
@@ -32,36 +32,26 @@
         <div class="fenlei">
             <h2>文章分类</h2>
             <ul>
-                <li>学无止境（33）</li>
-                <li>日记（19）</li>
-                <li>慢生活（520）</li>
-                <li>美文欣赏（40）</li>
+                {% for i in category %}
+                    <li>{{ i.name }}</li>
+                {% endfor %}
             </ul>
         </div>
         <div>
             <h2>站长推荐</h2>
             <ul>
                 <li><a href="/">你是什么人便会遇上什么人</a></li>
-                <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-                <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-                <li><a href="/">个人博客模板《绅士》后台管理</a></li>
-                <li><a href="/">你是什么人便会遇上什么人</a></li>
-                <li><a href="/">帝国cms 列表页调用子栏目，没有则不显示栏目名称</a></li>
-                <li><a href="/">第二届 优秀个人博客模板比赛参选活动</a></li>
-                <li><a href="/">个人博客模板《绅士》后台管理</a></li>
             </ul>
         </div>
     </div>
     <div class="r_box">
         <ul>
+            {% for i in article %}
             <li>
-                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
-                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
+                <h3><a href="/">{{ i.title }}</a></h3>
+                <p>{{ i.content | safe }}</p>
             </li>
-            <li>
-                <h3><a href="/">你是什么人便会遇上什么人</a></h3>
-                <p>有时就为了一句狠话，像心头一口毒钉，永远麻痺着亲密感情交流。恶言，真要慎出，平日多誠心爱语，乃最简易之佈施。</p>
-            </li>
+            {% endfor %}
         </ul>
         <div class="page">
             <span>首页</span>

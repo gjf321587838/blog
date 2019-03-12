@@ -1,0 +1,27 @@
+
+*{margin: 0;
+    padding: 0;
+}
+
+header {
+    padding: 10px 5px;
+    border-bottom: 1px solid #ccc;
+}
+header strong{
+    color: #0e90d2;
+    margin-left: 10px;
+}
+article table tr td{
+   padding: 10px 5px;
+}
+input[type=text],input[type=email],input[type=number]{
+    line-height: 20px;
+    padding: 5px;
+    color: #555;
+    max-width: 200px;
+    width: 100%;
+}
+input[type=submit],input[type=reset]{
+    color: whitesmoke;
+    background-image: url("/static/image/an.png");
+}
